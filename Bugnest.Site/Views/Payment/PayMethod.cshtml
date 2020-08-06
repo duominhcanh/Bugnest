@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "PayMethod";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mt-5">
+    <h2>Chọn hình thức thanh toán</h2>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                setInterval("keepClientAlive()", 1000 * 30);
+            });
+        });
+
+        function keepClientAlive() {
+            $.get("../Connection/KeepClientAlive", function (data) { });
+        }
+    </script>
+}
+

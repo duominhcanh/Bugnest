@@ -1,0 +1,100 @@
+﻿<Window x:Class="Bugnest.Bingwall.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bugnest.Bingwall"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStyle="None" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Name="RootWindow"
+        Title="Bingwall" Width="956.2" Height="537.6">
+    <Window.Resources>
+        <Style x:Key="btn">
+            <Setter Property="md:PackIcon.Width" Value="30"/>
+            <Setter Property="md:PackIcon.Height" Value="30"/>
+        </Style>
+    </Window.Resources>
+    <Canvas x:Name="RootCanvas">
+        <Grid Margin="0" 
+              x:Name="RootGrid" 
+              Background="#CC2f3542" 
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch"
+              Width="{Binding ElementName=RootWindow, Path=Width}" 
+              Height="{Binding ElementName=RootWindow, Path=Height}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Border Grid.RowSpan="1"
+                    Background="#AA2f3542" 
+                    BorderBrush="#747d8c" 
+                    BorderThickness="0 0 0.5 0">
+                <ListView x:Name="ListBox"
+                          ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                          Background="Transparent" 
+                          BorderThickness="0"
+                          Margin="5"
+                          Padding="2">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Margin" Value="0 0 0 5"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border>
+                                <Image Source="{Binding Image}" Width="150"/>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Border>
+
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+                <ListViewItem x:Name="BtnClose" 
+                              md:HintAssist.Hint="Close" 
+                              HorizontalAlignment="Right">
+                    <md:PackIcon Kind="Close" Foreground="White" Width="30" Height="30"/>
+                </ListViewItem>
+
+                <StackPanel Orientation="Horizontal" 
+                        Grid.Row="2" 
+                        HorizontalAlignment="Right" 
+                        Margin="5">
+                    <ListViewItem x:Name="BtnGet" 
+                              md:HintAssist.Hint="Get">
+                        <md:PackIcon Kind="ArrowDownCircleOutline" 
+                                 Foreground="White" 
+                                 Width="30" 
+                                 Height="30"/>
+                    </ListViewItem>
+                    <ListViewItem x:Name="BtnApply" 
+                              Margin="5 0 0 0" 
+                              md:HintAssist.Hint="Apply">
+                        <md:PackIcon Kind="CheckboxMarkedCircleOutline" 
+                                 Foreground="White" 
+                                 Width="30" 
+                                 Height="30"/>
+                    </ListViewItem>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Canvas>
+</Window>

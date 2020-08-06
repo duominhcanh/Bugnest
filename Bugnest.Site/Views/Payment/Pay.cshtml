@@ -1,0 +1,24 @@
+﻿@model Bugnest.Site.Models.FormData.PayViewData
+
+@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mt-5">
+    <h2>Thanh toán</h2>
+    <form class="mt-3" method="post" action="Pay">
+        <div class="form-group" >
+            <label>Tên nạn nhân</label>
+            <input name="CustomerName" class="form-control" type="text" />
+        </div>
+        <div class="form-group">
+            <label>Số tiền phạt</label>
+            <input name="Ammount" class="form-control" type="text" />
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Thanh toán cực mạnh!" />
+        </div>
+    </form>
+</div>
+
